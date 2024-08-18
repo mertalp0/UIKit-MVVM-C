@@ -7,6 +7,6 @@
 
 import Foundation
 
-class RegisterViewModel : RegisterViewModelProtocol {
+class RegisterViewModel : BaseViewModel, RegisterViewModelProtocol {
     var name : String = ""
 }

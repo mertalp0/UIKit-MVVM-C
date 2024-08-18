@@ -7,9 +7,9 @@
 
 import UIKit
 
-class SplashViewController: UIViewController {
+class SplashViewController: BaseViewController<SplashCoordinator, SplashViewModel> {
+    
     //MARK: - Properties
-    var coordinator: SplashCoordinator?
     private var splashTitle : UILabel = {
         let label = UILabel()
         label.text = "Splash View"
@@ -44,13 +44,6 @@ class SplashViewController: UIViewController {
         style()
         layout()
     }
-    override func viewWillAppear(_ animated: Bool) {
-        
-        print("******")
-        print("Splash WillAppear")
-        print(coordinator?.childCoordinators)
-        print("******")
-    }
 }
 
 //MARK: - Helpers
@@ -81,13 +74,9 @@ extension SplashViewController {
             registerButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor,constant: 80),
             registerButton.leadingAnchor.constraint(equalTo:  view.leadingAnchor , constant:  100 ),
             registerButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -100),
-            
-            
-            
         ])
     }
 }
-
 
 //MARK: - Selectors
 extension SplashViewController{

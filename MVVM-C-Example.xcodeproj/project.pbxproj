@@ -36,6 +36,9 @@
 		94BC22F82C702778003138B1 /* HomeViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BC22F72C702778003138B1 /* HomeViewModelProtocol.swift */; };
 		94BC22FD2C702C0C003138B1 /* TabBarControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BC22FC2C702C0C003138B1 /* TabBarControllerFactory.swift */; };
 		94BC22FF2C71F3D6003138B1 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BC22FE2C71F3D6003138B1 /* DataService.swift */; };
+		94BC23022C71FC98003138B1 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BC23012C71FC98003138B1 /* BaseViewModel.swift */; };
+		94BC23042C71FCB1003138B1 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BC23032C71FCB1003138B1 /* BaseViewController.swift */; };
+		94BC23072C72115D003138B1 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BC23062C72115D003138B1 /* SplashViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +73,9 @@
 		94BC22F72C702778003138B1 /* HomeViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelProtocol.swift; sourceTree = "<group>"; };
 		94BC22FC2C702C0C003138B1 /* TabBarControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllerFactory.swift; sourceTree = "<group>"; };
 		94BC22FE2C71F3D6003138B1 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		94BC23012C71FC98003138B1 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		94BC23032C71FCB1003138B1 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		94BC23062C72115D003138B1 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +108,7 @@
 		941E78842C6E69C90048217D /* MVVM-C-Example */ = {
 			isa = PBXGroup;
 			children = (
+				94BC23002C71FC88003138B1 /* Base */,
 				941E78B52C6E75BA0048217D /* Models */,
 				941E789B2C6E6E880048217D /* App */,
 				941E789C2C6E6F9E0048217D /* Coordinator */,
@@ -154,6 +161,7 @@
 		941E78A12C6E6FE90048217D /* Splash */ = {
 			isa = PBXGroup;
 			children = (
+				94BC23052C72114F003138B1 /* ViewModel */,
 				941E78AC2C6E749D0048217D /* View */,
 				941E78AB2C6E74890048217D /* Coordinator */,
 				941E78AA2C6E747D0048217D /* Controller */,
@@ -400,6 +408,23 @@
 			path = Factory;
 			sourceTree = "<group>";
 		};
+		94BC23002C71FC88003138B1 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				94BC23012C71FC98003138B1 /* BaseViewModel.swift */,
+				94BC23032C71FCB1003138B1 /* BaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		94BC23052C72114F003138B1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				94BC23062C72115D003138B1 /* SplashViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -472,6 +497,7 @@
 			files = (
 				941E78A02C6E6FC90048217D /* BaseCoordinator.swift in Sources */,
 				94BC22FD2C702C0C003138B1 /* TabBarControllerFactory.swift in Sources */,
+				94BC23042C71FCB1003138B1 /* BaseViewController.swift in Sources */,
 				941E789E2C6E6FBB0048217D /* AppCoordinator.swift in Sources */,
 				94BC22DF2C6FD45D003138B1 /* TabbarCoordinator.swift in Sources */,
 				94BC22D22C6FA0D9003138B1 /* RegisterCoordinator.swift in Sources */,
@@ -484,9 +510,11 @@
 				94BC22E22C6FD793003138B1 /* User.swift in Sources */,
 				94BC22F82C702778003138B1 /* HomeViewModelProtocol.swift in Sources */,
 				941E78B02C6E74FB0048217D /* SplashCoordinator.swift in Sources */,
+				94BC23072C72115D003138B1 /* SplashViewModel.swift in Sources */,
 				94BC22EC2C7024EB003138B1 /* ProfileCoordinator.swift in Sources */,
 				941E78862C6E69C90048217D /* AppDelegate.swift in Sources */,
 				94BC22D42C6FA1BE003138B1 /* RegisterViewModel.swift in Sources */,
+				94BC23022C71FC98003138B1 /* BaseViewModel.swift in Sources */,
 				94BC22F02C702539003138B1 /* ProfileViewModelProtocol.swift in Sources */,
 				94BC22DB2C6FA32F003138B1 /* RegisterViewModelProtocol.swift in Sources */,
 				94BC22EE2C702522003138B1 /* ProfileViewModel.swift in Sources */,

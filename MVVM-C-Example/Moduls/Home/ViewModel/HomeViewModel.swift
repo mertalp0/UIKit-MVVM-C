@@ -6,4 +6,4 @@
 //
 
 import Foundation
-class HomeViewModel : HomeViewModelProtocol {}
+class HomeViewModel : BaseViewModel, HomeViewModelProtocol {}

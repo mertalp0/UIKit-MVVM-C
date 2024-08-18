@@ -7,10 +7,9 @@
 
 import UIKit
 
-class HomeViewController : UIViewController {
+class HomeViewController : BaseViewController<HomeCoordinator, HomeViewModel> {
     //MARK: - Proterties
-    var viewModel : HomeViewModel
-    var coordinator : HomeCoordinator? 
+
     
     private let label: UILabel  = {
         let label = UILabel()
@@ -20,14 +19,6 @@ class HomeViewController : UIViewController {
     }()
     
     //MARK: - Lifecycle
-    init(viewModel: HomeViewModel) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-     
-    }
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     override func viewDidLoad() {
         style()

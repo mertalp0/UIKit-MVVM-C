@@ -10,7 +10,8 @@ import UIKit
 class SplashCoordinator: BaseCoordinator {
     override func start() {
         addChild(self)
-        let splashViewController = SplashViewController()
+        let splashViewModel = SplashViewModel()
+        let splashViewController = SplashViewController(viewModel: splashViewModel)
         splashViewController.coordinator = self
         navigationController.pushViewController(splashViewController, animated: true)
     }
@@ -18,11 +19,10 @@ class SplashCoordinator: BaseCoordinator {
     func showLogin() {
         let loginCoordinator = LoginCoordinator(navigationController: navigationController)
             loginCoordinator.start()
-            
     }
+    
     func showRegister(){
         let registerCoordinator = RegisterCoordinator(navigationController: navigationController)
-       
         registerCoordinator.start()
     }
 }

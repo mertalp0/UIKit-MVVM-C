@@ -7,4 +7,4 @@
 
 import Foundation
 
-class ProfileViewModel : ProfileViewModelProtocol {}
+class ProfileViewModel : BaseViewModel ,ProfileViewModelProtocol  {}

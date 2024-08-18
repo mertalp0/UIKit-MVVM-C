@@ -7,11 +7,8 @@
 
 import UIKit
 
-class RegisterEmailPasswordViewController : UIViewController {
+class RegisterEmailPasswordViewController : BaseViewController<RegisterCoordinator, RegisterViewModel> {
     //MARK: - Proterties
-    var coordinator : RegisterCoordinator?
-    var viewModel : RegisterViewModel
-    
     private var backButton: UIButton = {
         let button = UIButton()
         let image = UIImage(systemName: "chevron.backward")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 24, weight: .regular))
@@ -42,19 +39,10 @@ class RegisterEmailPasswordViewController : UIViewController {
         return button
     }()
     
-    
     //MARK: - Lifecycle
     override func viewDidLoad() {
         style()
         layout()
-    }
-    init(viewModel: RegisterViewModel) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }
 //MARK: - Helpers

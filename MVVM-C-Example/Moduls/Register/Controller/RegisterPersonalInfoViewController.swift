@@ -7,11 +7,9 @@
 
 import UIKit
 
-class RegisterPersonalInfoViewController : UIViewController {
+class RegisterPersonalInfoViewController: BaseViewController<RegisterCoordinator, RegisterViewModel> {
     //MARK: - Proterties
-    var coordinator : RegisterCoordinator?
-    var viewModel : RegisterViewModel
-    
+
     private var backButton: UIButton = {
         let button = UIButton()
         let image = UIImage(systemName: "chevron.backward")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 24, weight: .regular))
@@ -32,22 +30,22 @@ class RegisterPersonalInfoViewController : UIViewController {
     }()
     private var appBarStackView : UIStackView!
     
-    
-    
     //MARK: - Lifecycle
     override func viewDidLoad() {
         style()
         layout()
+       
     }
-    init(viewModel: RegisterViewModel) {
-        self.viewModel = viewModel
-        print("viewModel.name")
+ 
+    override init(viewModel: RegisterViewModel) {
         print(viewModel.name)
-        super.init(nibName: nil, bundle: nil)
+        super.init(viewModel: viewModel)
     }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
 }
 //MARK: - Helpers
 extension RegisterPersonalInfoViewController{

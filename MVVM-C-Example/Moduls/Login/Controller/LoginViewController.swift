@@ -6,10 +6,8 @@
 //
 import UIKit
 
-class LoginViewController : UIViewController {
+class LoginViewController : BaseViewController<LoginCoordinator, LoginViewModel> {
     //MARK: - Properties
-    var coordinator: LoginCoordinator?
-    var viewModel : LoginViewModel
     private var backButton: UIButton = {
         let button = UIButton()
         let image = UIImage(systemName: "chevron.backward")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 24, weight: .regular))
@@ -41,21 +39,6 @@ class LoginViewController : UIViewController {
     }()
     
     //MARK: - LifeCycle
-    init( viewModel: LoginViewModel) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        print("******")
-        print("LoginWillAppear")
-        print(coordinator?.childCoordinators)
-        print("******")
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,9 +54,6 @@ extension LoginViewController {
         view.backgroundColor = .systemIndigo
         appBarStackView = UIStackView(arrangedSubviews: [backButton , titleLabel])
         appBarStackView.axis = .horizontal
-      
-        
-        
     }
     
     func layout() {

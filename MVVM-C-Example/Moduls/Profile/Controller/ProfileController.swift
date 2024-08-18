@@ -7,26 +7,17 @@
 
 import UIKit
 
-class ProfileViewController : UIViewController {
+class ProfileViewController : BaseViewController<ProfileCoordinator, ProfileViewModel> {
     //MARK: - Proterties
-    var coordinator : ProfileCoordinator?
-    var viewModel : ProfileViewModel
+   
     //MARK: - Lifecycle
-    init( viewModel: ProfileViewModel) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
+
     private let label: UILabel  = {
         let label = UILabel()
         label.text = "Profile"
         label.textAlignment = .center
         return label
     }()
-    
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     override func viewDidLoad() {
         style()
