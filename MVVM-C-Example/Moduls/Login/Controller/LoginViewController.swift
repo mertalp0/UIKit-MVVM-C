@@ -14,7 +14,7 @@ class LoginViewController : BaseViewController<LoginCoordinator, LoginViewModel>
         button.setImage(image, for: .normal)
         button.addTarget(nil, action: #selector(handleBackButton), for: .touchUpInside)
         button.tintColor = .white
-    
+
         return button
     }()
     
@@ -26,6 +26,7 @@ class LoginViewController : BaseViewController<LoginCoordinator, LoginViewModel>
         label.textAlignment = .center
         return label
     }()
+    
     private var appBarStackView : UIStackView!
     
     private var loginButton : UIButton = {
@@ -39,7 +40,6 @@ class LoginViewController : BaseViewController<LoginCoordinator, LoginViewModel>
     }()
     
     //MARK: - LifeCycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         style()
@@ -74,13 +74,8 @@ extension LoginViewController {
                    loginButton.topAnchor.constraint(equalTo: appBarStackView.bottomAnchor,constant: 80),
                    loginButton.leadingAnchor.constraint(equalTo:  view.leadingAnchor , constant:  100 ),
                    loginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -100),
-                   
-
               ])
-              
     }
-    
-    
 }
 
 //MARK: - Selectors
@@ -90,6 +85,10 @@ extension LoginViewController {
         coordinator?.back()
     }
     @objc func handleLoginButton(){
-        coordinator?.showTabBar()
+        viewModel.login(completion: { succes in 
+            if succes {
+                self.coordinator?.showTabBar()
+            }
+        })
     }
 }

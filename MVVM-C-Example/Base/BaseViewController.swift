@@ -5,12 +5,15 @@
 //  Created by mert alp on 18.08.2024.
 //
 import UIKit
+import Combine
 
 class BaseViewController <CoordinatorType: BaseCoordinator, ViewModelType: BaseViewModel>: UIViewController {
     // MARK: - Properties
+    
     var coordinator: CoordinatorType?
     var viewModel: ViewModelType
-    
+    private var cancellables = Set<AnyCancellable>()
+
     private var loadingView: UIView?
     private var errorView: UIView?
     
@@ -27,6 +30,7 @@ class BaseViewController <CoordinatorType: BaseCoordinator, ViewModelType: BaseV
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        bindViewModel()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -115,5 +119,28 @@ extension BaseViewController {
             alert.addAction(cancelAction)
             self.present(alert, animated: true, completion: nil)
         }
+    }
+}
+
+// MARK: - Bind ViewModel
+extension BaseViewController {
+    func bindViewModel() {
+        viewModel.$errorMessage
+            .sink { [weak self] errorMessage in
+                if let message = errorMessage {
+                    self?.showAlert(title: "Error", message: message)
+                }
+            }
+            .store(in: &cancellables)
+
+        viewModel.$isLoading
+            .sink { [weak self] isLoading in
+                if isLoading {
+                    self?.showLoading()
+                } else {
+                    self?.hideLoading()
+                }
+            }
+            .store(in: &cancellables)
     }
 }

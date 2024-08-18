@@ -20,7 +20,7 @@ class LoginCoordinator : BaseCoordinator {
          let tabBarCoordinator = TabBarCoordinator(navigationController: navigationController)
          addChild(tabBarCoordinator)
          tabBarCoordinator.start()
-         removeChild(self)  // LoginCoordinator'ı kaldırıyoruz çünkü artık TabBarCoordinator yönetiminde olacağız
+         removeChild(self)
      }
     
     func back() {
