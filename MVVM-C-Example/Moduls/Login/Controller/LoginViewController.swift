@@ -29,15 +29,7 @@ class LoginViewController : BaseViewController<LoginCoordinator, LoginViewModel>
     
     private var appBarStackView : UIStackView!
     
-    private var loginButton : UIButton = {
-        let button = UIButton()
-        button.setTitle("Login", for: .normal)
-        button.backgroundColor = .systemPink
-        button.tintColor = .white
-        button.layer.cornerRadius = 12
-        button.addTarget(nil, action: #selector(handleLoginButton), for: .touchUpInside)
-        return button
-    }()
+    let loginButton = CustomButton(title: "Login",  target: nil, action: #selector(handleLoginButton))
     
     //MARK: - LifeCycle
     override func viewDidLoad() {
