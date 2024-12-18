@@ -74,7 +74,7 @@ extension LoginViewController {
 extension LoginViewController {
     @objc func handleBackButton() {
       //  print("handle back button")
-        coordinator?.back()
+        coordinator?.backToSplash()
     }
     @objc func handleLoginButton(){
         viewModel.login(completion: { succes in 

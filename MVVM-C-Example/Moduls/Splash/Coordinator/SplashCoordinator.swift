@@ -17,8 +17,11 @@ class SplashCoordinator: BaseCoordinator {
     }
 
     func showLogin() {
+      
         let loginCoordinator = LoginCoordinator(navigationController: navigationController)
-            loginCoordinator.start()
+        addChild(loginCoordinator)
+        loginCoordinator.parentCoordinators = self
+        loginCoordinator.start()
     }
     
     func showRegister(){

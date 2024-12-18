@@ -15,6 +15,7 @@ protocol Coordinator: AnyObject {
 class BaseCoordinator: Coordinator {
     
     var childCoordinators: [Coordinator] = []
+    var parentCoordinators:Coordinator?
     var navigationController: UINavigationController
 
     init(navigationController: UINavigationController) {
@@ -33,7 +34,11 @@ class BaseCoordinator: Coordinator {
 
     func removeChild(_ coordinator: Coordinator) {
         childCoordinators = childCoordinators.filter { $0 !== coordinator}
+        navigationController.popViewController(animated: true)
     }
 
-
+    func backToSplash(){
+        childCoordinators = []
+        navigationController.popToRootViewController(animated: true)
+    }
 }

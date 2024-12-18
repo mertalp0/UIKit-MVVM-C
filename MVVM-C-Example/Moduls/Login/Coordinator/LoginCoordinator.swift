@@ -9,10 +9,10 @@ import Foundation
 
 class LoginCoordinator : BaseCoordinator {
     override func start() {
-        addChild(self)
          let loginViewModel = LoginViewModel()
          let loginViewController = LoginViewController(viewModel: loginViewModel)
          loginViewController.coordinator = self
+       print( self.parentCoordinators?.childCoordinators)
          navigationController.pushViewController(loginViewController, animated: true)
      }
     
@@ -24,8 +24,7 @@ class LoginCoordinator : BaseCoordinator {
      }
     
     func back() {
-        navigationController.popViewController(animated: true)
-        removeChild(self)
+        removeChild((self.parentCoordinators?.childCoordinators.last)!)
         }
  
     
